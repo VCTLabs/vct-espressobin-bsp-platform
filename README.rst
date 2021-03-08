@@ -16,7 +16,40 @@ espessobin page on the `Gentoo wiki`_ for more info.
 .. _Gentoo wiki: https://wiki.gentoo.org/wiki/ESPRESSOBin
 .. _arm64-multiplatform: https://github.com/sarnold/arm64-multiplatform
 
-There are 3 main branches for each of the above choices: zeus, rocko, and master.
+espressobin variants
+--------------------
+
+There are basically 3 different espressobin hardware variants:
+
+* espressobin - v5 (machine name either espressobin or espressobin-v5)
+* espressobin - v7 (machine name espressobin-v7, vendor only)
+* espressobin - ultra (machine name espressobin-ultra)
+
+The actual names of device tree files and u-boot configs vary, mainly depending
+on whether kernel/u-boot comes from mainline or vendor forks.  The ``v5/v7``
+boards look almost identical (the main difference is essentially DDR size/timing)
+while the ``ultra`` variant adds additional hardware/peripherals.
+
+* mainline u-boot - espressobin(v5) support, use mvebu_espressobin-88f3720_defconfig
+* mainline kernel - at least basic device tree and driver support (all 3 variants)
+
+The "factory" u-boot is a 2017 version of Marvell's u-boot fork, and should
+work fine with a mainline kernel as long as their devive tree blob and kernel
+name appear in the ``boot/`` directory::
+
+  # ls -l /boot/
+  total 28480
+  lrwxrwxrwx 1 root root       25 Mar  8 00:44 Image -> vmlinuz-4.14.3-aarch64-r0
+  lrwxrwxrwx 1 root root       58 Mar  8 00:44 armada-3720-community.dtb -> dtbs/4.14.3-aarch64-r0/marvell/armada-3720-espressobin.dtb
+  drwxr-xr-x 4 root root     4096 Mar  8 00:46 dtbs
+  -rwxr-xr-x 1 root root 14567936 Jan 26  2018 vmlinuz-4.13.12-aarch64-r0
+  -rwxr-xr-x 1 root root 14656000 Mar  8 00:18 vmlinuz-4.14.3-aarch64-r0
+
+
+Build branches
+--------------
+
+There are 3 main branches for each of the above choices: dunfell, rocko, and master.
 Select the main build branch using the github branch button above, which will select the
 correct manifest branches and BSP/metadata using the respective branches in this
 repo as shown below.
@@ -52,7 +85,7 @@ Download the BSP source
   $ PATH=${PATH}:~/bin
   $ mkdir espressobin-bsp
   $ cd espressobin-bsp
-  $ repo init -u https://github.com/VCTLabs/vct-espressobin-bsp-platform -b oe-zeus
+  $ repo init -u https://github.com/VCTLabs/vct-espressobin-bsp-platform -b oe-dunfell
   $ repo sync
 
 At the end of the above commands you have all the metadata you need to start
@@ -65,12 +98,17 @@ To start a simple image build for a espressobin Devices iMX6 nitrogen board::
   $ ${EDITOR} conf/local.conf             # set MACHINE to espressobin
   $ bitbake core-image-minimal
 
-You can use any directory (build-dir above) to host your build. The above commands will build an image for espressobin using the espressobin BSP machine config and the default marvell-linux kernel.
+You can use any directory (build-dir above) to host your build. The above
+commands will build an image for espressobin using the espressobin BSP
+machine config and the default marvell-linux kernel.
 
-For espressobin boards, you can replace the default marvell kernel with a patched mainline kernel; see the kernel branches in `arm64-multiplatform`_ (note new baords will be added as this manifest evolves).
+For espressobin boards, you can replace the default marvell kernel with
+a patched mainline kernel; see the kernel branches in `arm64-multiplatform`_
+(note new baords will be added as this manifest evolves).
 
-The main source code is checked out in the bsp dir above, and the build output dir will default
-to oe-core/build-dir unless you choose a different path above.
+The main source code is checked out in the bsp dir above, and the build
+output dir will default to oe-core/build-dir unless you choose a different
+path above.
 
 Source code
 -----------
@@ -84,11 +122,11 @@ Using Development and Testing/Release Branches
 
 Replace the repo init command above with one of the following:
 
-For developers - zeus
+For developers - dunfell
 
 ::
 
-  $ repo init -u https://github.com/VCTLabs/vct-beagleboard-bsp-platform -b oe-zeus
+  $ repo init -u https://github.com/VCTLabs/vct-beagleboard-bsp-platform -b oe-dunfell
 
 For intrepid developers and testers - master
 
