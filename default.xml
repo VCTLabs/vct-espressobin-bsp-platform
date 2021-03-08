@@ -20,7 +20,7 @@
   <project remote="mender" revision="rocko" name="meta-mender" path="oe-core/meta-mender"/>
   <project remote="teamred" revision="rocko" name="meta-espressobin" path="oe-core/meta-espressobin"/>
   <project remote="teamred" revision="rocko" name="meta-mender-espressobin" path="oe-core/meta-mender-espressobin"/>
-  <project remote="sla" revision="sumo" name="meta-small-arm-extra" path="oe-core"/>
+  <project remote="sla" revision="sumo" name="meta-small-arm-extra" path="oe-core/meta-small-arm-extra"/>
 
 </manifest>
 
