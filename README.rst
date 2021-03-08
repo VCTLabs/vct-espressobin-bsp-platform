@@ -2,7 +2,7 @@
  VCT Marvell espressobin BSP Manifest
 ======================================
 
-The various branches (other than this one) available here will configure the repo build
+The various branches available here will configure the repo build
 for the appropriate branches in each repository and clone them in the typical fashion,
 ie, with either poky or oe-core as the parent directory and the additional metadata
 layers underneath (as documented in the upstream setup).
@@ -16,7 +16,7 @@ espessobin page on the `Gentoo wiki`_ for more info.
 .. _Gentoo wiki: https://wiki.gentoo.org/wiki/ESPRESSOBin
 .. _arm64-multiplatform: https://github.com/sarnold/arm64-multiplatform
 
-There are 3 main branches for each of the above choices: zeus, rocko, and master.
+There are 3 main branches for each of the above choices: dunfell, rocko, and master.
 Select the main build branch using the github branch button above, which will select the
 correct manifest branches and BSP/metadata using the respective branches in this
 repo as shown below.
@@ -52,7 +52,7 @@ Download the BSP source
   $ PATH=${PATH}:~/bin
   $ mkdir espressobin-bsp
   $ cd espressobin-bsp
-  $ repo init -u https://github.com/VCTLabs/vct-espressobin-bsp-platform -b oe-zeus
+  $ repo init -u https://github.com/VCTLabs/vct-espressobin-bsp-platform -b oe-dunfell
   $ repo sync
 
 At the end of the above commands you have all the metadata you need to start
@@ -65,12 +65,19 @@ To start a simple image build for a espressobin Devices iMX6 nitrogen board::
   $ ${EDITOR} conf/local.conf             # set MACHINE to espressobin
   $ bitbake core-image-minimal
 
-You can use any directory (build-dir above) to host your build. The above commands will build an image for espressobin using the espressobin BSP machine config and the default marvell-linux kernel.
 
-For espressobin boards, you can replace the default marvell kernel with a patched mainline kernel; see the kernel branches in `arm64-multiplatform`_ (note new baords will be added as this manifest evolves).
 
-The main source code is checked out in the bsp dir above, and the build output dir will default
-to oe-core/build-dir unless you choose a different path above.
+You can use any directory (build-dir above) to host your build. The above
+commands will build an image for espressobin using the espressobin BSP
+machine config and the default marvell-linux kernel.
+
+For espressobin boards, you can replace the default marvell kernel with
+a patched mainline kernel; see the kernel branches in `arm64-multiplatform`_
+(note new baords will be added as this manifest evolves).
+
+The main source code is checked out in the bsp dir above, and the build
+output dir will default to oe-core/build-dir unless you choose a different
+path above.
 
 Source code
 -----------
@@ -84,11 +91,11 @@ Using Development and Testing/Release Branches
 
 Replace the repo init command above with one of the following:
 
-For developers - zeus
+For developers - dunfell
 
 ::
 
-  $ repo init -u https://github.com/VCTLabs/vct-beagleboard-bsp-platform -b oe-zeus
+  $ repo init -u https://github.com/VCTLabs/vct-beagleboard-bsp-platform -b oe-dunfell
 
 For intrepid developers and testers - master
 

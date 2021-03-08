@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <default sync-j="4" revision="oe-rocko"/>
+
+  <remote fetch="https://github.com/openembedded" name="oe-core"/>
+  <remote fetch="https://github.com/MarvellEmbeddedProcessors" name="marvell"/>
+  <remote fetch="https://github.com/teamredlabs" name="teamred"/>
+  <remote fetch="https://github.com/mendersoftware" name="mender"/>
+  <remote fetch="https://github.com/sarnold" name="sla"/>
+  <remote fetch="https://github.com/VCTLabs" name="vct"/>
+
+  <project remote="vct" revision="dunfell" name="openembedded-core" path="oe-core"/>
+  <project remote="oe-core" revision="dunfell" name="meta-openembedded" path="oe-core/meta-openembedded"/>
+  <project remote="oe-core" revision="1.36" name="bitbake" path="oe-core/bitbake"/>
+
+  <project remote="teamred" revision="dunfell" name="meta-marvell" path="oe-core/meta-marvell"/>
+  <project remote="vct" revision="master" name="meta-marvell-distro" path="oe-core/meta-marvell-distro"/>
+
+  <project remote="mender" revision="dunfell" name="meta-mender" path="oe-core/meta-mender"/>
+  <project remote="teamred" revision="dunfell" name="meta-espressobin" path="oe-core/meta-espressobin"/>
+  <project remote="teamred" revision="dunfell" name="meta-mender-espressobin" path="oe-core/meta-mender-espressobin"/>
+  <project remote="sla" revision="sumo" name="meta-small-arm-extra" path="oe-core"/>
+
+</manifest>
+
