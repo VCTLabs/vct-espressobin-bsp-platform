@@ -14,8 +14,8 @@
   <project remote="oe-core" revision="dunfell" name="meta-openembedded" path="oe-core/meta-openembedded"/>
   <project remote="oe-core" revision="1.36" name="bitbake" path="oe-core/bitbake"/>
 
-  <project remote="teamred" revision="dunfell" name="meta-marvell" path="oe-core/meta-marvell"/>
-  <project remote="vct" revision="master" name="meta-marvell-distro" path="oe-core/meta-marvell-distro"/>
+  <project remote="teamred" revision="krogoth" name="meta-marvell" path="oe-core/meta-marvell"/>
+  <project remote="vct" revision="krogoth" name="meta-marvell-distro" path="oe-core/meta-marvell-distro"/>
 
   <project remote="mender" revision="dunfell" name="meta-mender" path="oe-core/meta-mender"/>
   <project remote="teamred" revision="dunfell" name="meta-espressobin" path="oe-core/meta-espressobin"/>
