@@ -16,6 +16,39 @@ espessobin page on the `Gentoo wiki`_ for more info.
 .. _Gentoo wiki: https://wiki.gentoo.org/wiki/ESPRESSOBin
 .. _arm64-multiplatform: https://github.com/sarnold/arm64-multiplatform
 
+espressobin variants
+--------------------
+
+There are basically 3 different espressobin hardware variants:
+
+* espressobin - v5 (machine name either espressobin or espressobin-v5)
+* espressobin - v7 (machine name espressobin-v7, vendor only)
+* espressobin - ultra (machine name espressobin-ultra)
+
+The actual names of device tree files and u-boot configs vary, mainly depending
+on whether kernel/u-boot comes from mainline or vendor forks.  The ``v5/v7``
+boards look almost identical (the main difference is essentially DDR size/timing)
+while the ``ultra`` variant adds additional hardware/peripherals.
+
+* mainline u-boot - espressobin(v5) support, use mvebu_espressobin-88f3720_defconfig
+* mainline kernel - at least basic device tree and driver support (all 3 variants)
+
+The "factory" u-boot is a 2017 version of Marvell's u-boot fork, and should
+work fine with a mainline kernel as long as their devive tree blob and kernel
+name appear in the ``boot/`` directory::
+
+  # ls -l /boot/
+  total 28480
+  lrwxrwxrwx 1 root root       25 Mar  8 00:44 Image -> vmlinuz-4.14.3-aarch64-r0
+  lrwxrwxrwx 1 root root       58 Mar  8 00:44 armada-3720-community.dtb -> dtbs/4.14.3-aarch64-r0/marvell/armada-3720-espressobin.dtb
+  drwxr-xr-x 4 root root     4096 Mar  8 00:46 dtbs
+  -rwxr-xr-x 1 root root 14567936 Jan 26  2018 vmlinuz-4.13.12-aarch64-r0
+  -rwxr-xr-x 1 root root 14656000 Mar  8 00:18 vmlinuz-4.14.3-aarch64-r0
+
+
+Build branches
+--------------
+
 There are 3 main branches for each of the above choices: dunfell, rocko, and master.
 Select the main build branch using the github branch button above, which will select the
 correct manifest branches and BSP/metadata using the respective branches in this
@@ -62,7 +95,7 @@ To start a simple image build for a espressobin Devices iMX6 nitrogen board::
 
   $ cd oe-core
   $ source ./oe-init-build-env build-dir  # you choose name of build-dir
-  $ ${EDITOR} conf/local.conf             # set MACHINE to espressobin
+  $ ${EDITOR} conf/local.conf             # set MACHINE to espressobin (mainline kernel)
   $ bitbake core-image-minimal
 
 
