@@ -89,13 +89,13 @@ Download the BSP source
   $ repo sync
 
 At the end of the above commands you have all the metadata you need to start
-building with poky and meta-oe on fido branches.
+building with poky and meta-oe on dunfell branches.
 
 To start a simple image build for a espressobin Devices iMX6 nitrogen board::
 
   $ cd oe-core
   $ source ./oe-init-build-env build-dir  # you choose name of build-dir
-  $ ${EDITOR} conf/local.conf             # set MACHINE to espressobin (mainline kernel)
+  $ ${EDITOR} conf/local.conf             # set MACHINE to espressobin (mainline kernel) or espressobin-v5 (vendor kernel)
   $ bitbake core-image-minimal
 
 
