@@ -12,15 +12,15 @@
 
   <project remote="oe-core" revision="dunfell" name="openembedded-core" path="oe-core"/>
   <project remote="oe-core" revision="dunfell" name="meta-openembedded" path="oe-core/meta-openembedded"/>
-  <project remote="oe-core" revision="1.36" name="bitbake" path="oe-core/bitbake"/>
+  <project remote="oe-core" revision="1.46" name="bitbake" path="oe-core/bitbake"/>
 
   <project remote="teamred" revision="krogoth" name="meta-marvell" path="oe-core/meta-marvell"/>
   <project remote="vct" revision="krogoth" name="meta-marvell-distro" path="oe-core/meta-marvell-distro"/>
 
   <project remote="mender" revision="dunfell" name="meta-mender" path="oe-core/meta-mender"/>
-  <project remote="teamred" revision="dunfell" name="meta-espressobin" path="oe-core/meta-espressobin"/>
+  <project remote="vct" revision="dunfell" name="meta-espressobin" path="oe-core/meta-espressobin"/>
   <project remote="teamred" revision="dunfell" name="meta-mender-espressobin" path="oe-core/meta-mender-espressobin"/>
-  <project remote="sla" revision="sumo" name="meta-small-arm-extra" path="oe-core/meta-small-arm-extra"/>
+  <project remote="sla" revision="dunfell" name="meta-small-arm-extra" path="oe-core/meta-small-arm-extra"/>
 
 </manifest>
 
