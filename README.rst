@@ -31,11 +31,11 @@ boards look almost identical (the main difference is essentially DDR size/timing
 while the ``ultra`` variant adds additional hardware/peripherals.
 
 * mainline u-boot - espressobin(v5) support, use mvebu_espressobin-88f3720_defconfig
-* mainline kernel - at least basic device tree and driver support (all 3 variants)
+* mainline kernel - at least basic device tree and driver support (v5/v7 only, ultra needs a patch)
 
 The "factory" u-boot is a 2017 version of Marvell's u-boot fork, and should
-work fine with a mainline kernel as long as their devive tree blob and kernel
-name appear in the ``boot/`` directory::
+work fine with a mainline kernel as long as their device tree blob and kernel
+names appear in the ``boot/`` directory::
 
   # ls -l /boot/
   total 28480
@@ -91,7 +91,7 @@ Download the BSP source
 At the end of the above commands you have all the metadata you need to start
 building with poky and meta-oe on dunfell branches.
 
-To start a simple image build for a espressobin Devices iMX6 nitrogen board::
+To start a simple image build for a espressobin v5 1GB DDR3 board::
 
   $ cd oe-core
   $ source ./oe-init-build-env build-dir  # you choose name of build-dir
@@ -105,8 +105,10 @@ commands will build an image for espressobin using the espressobin BSP
 machine config and the default marvell-linux kernel.
 
 For espressobin boards, you can replace the default marvell kernel with
-a patched mainline kernel; see the kernel branches in `arm64-multiplatform`_
-(note new baords will be added as this manifest evolves).
+the mainline kernel; see the kernel branches in `arm64-multiplatform`_
+(note new baords will be added as this manifest evolves).  As of version
+5.10.14 the mainline kernel has all the newer espressobin device trees
+*except* the ultra variant.
 
 The main source code is checked out in the bsp dir above, and the build
 output dir will default to oe-core/build-dir unless you choose a different
