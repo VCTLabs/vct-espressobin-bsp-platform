@@ -11,7 +11,7 @@ The main branches build either the poky reference distro or oe-core with your ch
 of distro.  Note that oe-core will build "distroless" by default, however, you can set
 DISTRO = "vctlabs" in your local.conf if you want the mainline kernel to be the default.
 See the `arm64-multiplatform`_ repo for the mainline kernel branches tested, and the
-espessobin page on the `Gentoo wiki`_ for more info.
+espressobin page on the `Gentoo wiki`_ for more info.
 
 .. _Gentoo wiki: https://wiki.gentoo.org/wiki/ESPRESSOBin
 .. _arm64-multiplatform: https://github.com/sarnold/arm64-multiplatform
@@ -65,8 +65,8 @@ once you've run the ``repo init`` and ``repo sync`` commands.  Try::
   $ repo show
   $ repo status
 
-See the default.xml file for repo and branch details; the following example is generic
-so go back and select a branch from this repo.
+See the default.xml file for repo and branch details.
+
 
 Install the repo utility
 ------------------------
@@ -76,6 +76,7 @@ Install the repo utility
   $ mkdir ~/bin
   $ curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
   $ chmod a+x ~/bin/repo
+
 
 Download the BSP source
 -----------------------
@@ -114,12 +115,14 @@ The main source code is checked out in the bsp dir above, and the build
 output dir will default to oe-core/build-dir unless you choose a different
 path above.
 
+
 Source code
 -----------
 
 Download the manifest source here::
 
   $ git clone https://github.com/VCTLabs/vct-espressobin-bsp-platform
+
 
 Using Development and Testing/Release Branches
 ----------------------------------------------
@@ -142,5 +145,4 @@ breaks something that was working before.  Use with caution.
 ::
 
   $ repo init -u https://github.com/VCTLabs/vct-beagleboard-bsp-platform -b oe-master
-
 
