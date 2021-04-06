@@ -107,7 +107,7 @@ machine config and the default marvell-linux kernel.
 
 For espressobin boards, you can replace the default marvell kernel with
 the mainline kernel; see the kernel branches in `arm64-multiplatform`_
-(note new baords will be added as this manifest evolves).  As of version
+(note new boards will be added as this manifest evolves).  As of version
 5.10.14 the mainline kernel has all the newer espressobin device trees
 *except* the ultra variant.
 
@@ -135,7 +135,7 @@ For developers - dunfell
 
   $ repo init -u https://github.com/VCTLabs/vct-beagleboard-bsp-platform -b oe-dunfell
 
-For intrepid developers and testers - master
+For intrepid developers and testers - master (TBD)
 
 Patches are typically merged into master-next and then are merged into master
 after a testing and comment period. It’s possible that master has
